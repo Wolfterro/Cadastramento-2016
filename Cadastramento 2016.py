@@ -88,7 +88,7 @@ def Inicializar_Programa():
     print "=================\n"
 
     print "(1) Realizar cadastramento"
-    print "(2) Listar cadastramentos\n"
+    print "(2) Listar cadastros existentes\n"
 
     menu_escolha = raw_input("Qual operação deseja realizar (qualquer outra tecla para sair): ")
 
