@@ -115,7 +115,7 @@ def Cadastramento():
     cadastrar_sobrenome = raw_input("Qual é o seu sobrenome: ")
     cadastrar_ano_nascimento = int(raw_input("Em que ano você nasceu: "))
     cadastrar_sexo = raw_input("Você é do sexo Feminino ou Masculino: ")
-    cadastrar_estado_civil = raw_input("Você é solteiro(a) ou casado(a): ")
+    cadastrar_estado_civil = raw_input("Qual é o seu estado civil: ")
     cadastrar_endereco = raw_input("Qual é o seu endereço: ")
     cadastrar_telefone = raw_input("Seu número de telefone (fixo): ")
     cadastrar_celular1 = raw_input("Seu número de celular (principal): ")
