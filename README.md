@@ -13,6 +13,7 @@
 
 ### Requisitos:
  - Python 2.x
+ - GNU Nano (Edição de cadastros pelo programa)
 
 ###### O programa foi desenvolvido pensando na plataforma Linux, podendo funcionar também nas plataformas BSD e OS X.
 ###### O programa, porém, poderá não funcionar na plataforma Windows!
