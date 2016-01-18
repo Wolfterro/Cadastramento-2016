@@ -1,0 +1,18 @@
+Cadastramento 2016
+==================
+
+Um simples programa em Python que mostra os processos básicos de um cadastramento.
+----------------------------------------------------------------------------------
+
+CHANGELOG:
+==========
+
+VERSÃO 1.1.0
+ - Adicionada função de edição de cadastros ao listá-los
+ - Melhorias na listagem de arquivos de cadastro
+ - Pequenas modificações estéticas no programa
+
+#-------------------------------------------------------------------------------------------------------------------
+
+VERSÃO 1.0.0
+ - Versão inicial do programa

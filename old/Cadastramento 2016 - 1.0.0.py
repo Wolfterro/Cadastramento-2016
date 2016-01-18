@@ -6,13 +6,13 @@ import os
 
 #---------------------------------------------------
 # Criado por: Wolfterro
-# Versão: 1.1.0 - Python 2.x
-# Data: 18/01/2016
+# Versão: 1.0.0 - Python 2.x
+# Data: 16/01/2016
 #---------------------------------------------------
 
 # Versão do programa
 #===================
-versao_programa = "1.1.0"
+versao_programa = "1.0.0"
 
 # Verificação da pasta 'Cadastros', onde será armazenado os cadastros
 #====================================================================
@@ -55,10 +55,8 @@ class Cadastro(object):
     # Imprimindo as informações na tela e retornando para escrita
     #============================================================
     def print_info(self):
-    	mostrar_ficha = "\nFicha de " + self.nome + " " + self.sobrenome + ":"
-    	tamanho_nome = len(mostrar_ficha) - 1
-        print mostrar_ficha
-        print "=" * tamanho_nome
+        print "\nFicha de " + self.nome + " " + self.sobrenome + ":"
+        print "=============================="
         
         return "Nome: " + self.nome + "\n" + \
                 "Sobrenome: " + self.sobrenome + "\n" + \
@@ -90,7 +88,7 @@ def Inicializar_Programa():
     print "=================\n"
 
     print "(1) Realizar cadastramento"
-    print "(2) Listar/Editar cadastros existentes\n"
+    print "(2) Listar cadastros existentes\n"
 
     menu_escolha = raw_input("Qual operação deseja realizar (qualquer outra tecla para sair): ")
 
@@ -99,8 +97,9 @@ def Inicializar_Programa():
     elif menu_escolha == "2":
         Verificar_Cadastros()
     else:
-        print "\nObrigado por utilizar Cadastramento 2016!\n"
-
+        print "\nObrigado por utilizar Cadastramento 2016!"
+        print "Saindo do programa...\n"
+        os.system("sleep 3")
 #=================================================================
 
 # Método de cadastramento
@@ -120,7 +119,7 @@ def Cadastramento():
     cadastrar_endereco = raw_input("Qual é o seu endereço: ")
     cadastrar_telefone = raw_input("Seu número de telefone (fixo): ")
     cadastrar_celular1 = raw_input("Seu número de celular (principal): ")
-    cadastrar_celular2 = raw_input("Seu número de celular (adicional): ")
+    cadastrar_celular2 = raw_input("Seu número de celular (adicional):")
     cadastrar_email = raw_input("Qual é o seu e-mail (opcional): ")
 
     # Verificação de espaços e campos vazios no nome e sobrenome
@@ -159,7 +158,6 @@ def Cadastramento():
 
             print "\nCadastramento realizado com sucesso!\n"
             os.system("sleep 3")
-            print "Obrigado por utilizar Cadastramento 2016!\n"
 
         else:
             os.system("clear")
@@ -177,51 +175,16 @@ def Cadastramento():
 #==================================
 def Verificar_Cadastros():
 
-    global listar_pasta_cadastros
     listar_pasta_cadastros = os.listdir(".")
-    tamanho_lista = len(listar_pasta_cadastros)
-	
-    listando = "\nListando cadastros existentes (" + str(tamanho_lista) + "):"
-    tamanho_listando = len(listando) - 1
-    print listando
-    print "=" * tamanho_listando
 
-    quantidade_items = 0
+    print "\nListando cadastros existentes:"
+    print "=============================="
 
     for lista_cadastrados in listar_pasta_cadastros:
-        quantidade_items = quantidade_items + 1
         lista_cadastrados = lista_cadastrados.replace("_", " ").replace(" - ", " == ").replace("-", "/").replace(".txt", "")
-        print str(quantidade_items) + " - " + lista_cadastrados
+        print lista_cadastrados
 
-    if tamanho_lista > 0:
-
-        editar_escolha = raw_input("\nDeseja editar um dos cadastros listados? [S/n]: ")
-        editar_escolha = editar_escolha.upper()
-
-        if editar_escolha == "S":
-            Editar_Cadastros()
-        else:
-            print "\nObrigado por utilizar Cadastramento 2016!\n"
-    else:
-        print "\nObrigado por utilizar Cadastramento 2016!\n"
-
-# Método de edição de cadastro
-#=============================
-def Editar_Cadastros():
-    escolher_arquivo = raw_input("\nEscolha um arquivo através do número listado: ")
-    escolher_arquivo = int(escolher_arquivo)
-    try:
-        os.system("nano " + listar_pasta_cadastros[escolher_arquivo - 1])
-        print "\nObrigado por utilizar Cadastramento 2016!\n"
-    except IndexError:
-        print "\nErro! Cadastro não consta na lista!"
-        escolher_arquivo_novamente = raw_input("\nDeseja escolher outro arquivo? [S/n]: ")
-        escolher_arquivo_novamente = escolher_arquivo_novamente.upper()
-
-        if escolher_arquivo_novamente == "S":
-            Editar_Cadastros()
-        else:
-            print "\nObrigado por utilizar Cadastramento 2016!\n"
+    print ""
 
 # Inicializando Programa
 #=======================
