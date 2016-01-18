@@ -9,6 +9,8 @@
 ###### O arquivo é criado em formato de puro texto e com extensão '.txt', tendo o nome, sobrenome, hora e data como nome do arquivo criado.
 ###### O programa também é capaz de listar os cadastros realizados, listando o nome e sobrenome da pessoa, a hora e a data do cadastramento.
 
+#### [Confira aqui o changelog do programa para maiores informações sobre diferentes versões.](https://raw.github.com/Wolfterro/Cadastramento-2016/master/CHANGELOG.txt)<br />
+
 ### Requisitos:
  - Python 2.x
 
