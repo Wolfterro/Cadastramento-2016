@@ -155,7 +155,7 @@ def Cadastramento():
         #===================================
         if confirmar_cadastro == "S":
 
-            arquivo_cadastro = open(cadastrar_nome + "_" + cadastrar_sobrenome + "_-_" + Cadastro.hora_atual + ":" + Cadastro.minuto_atual + ":" + Cadastro.segundo_atual + "_-_" + Cadastro.dia_atual + "-" + Cadastro.mes_atual + "-" + Cadastro.ano_atual + ".txt", "wb")
+            arquivo_cadastro = open(cadastrar_nome + "_" + cadastrar_sobrenome + "_-_" + Cadastro.hora_atual + ";" + Cadastro.minuto_atual + ";" + Cadastro.segundo_atual + "_-_" + Cadastro.dia_atual + "-" + Cadastro.mes_atual + "-" + Cadastro.ano_atual + ".txt", "wb")
             arquivo_cadastro.write(str(cadastrado_info))
 
             arquivo_cadastro.close()
@@ -193,7 +193,7 @@ def Verificar_Cadastros():
 
     for lista_cadastrados in listar_pasta_cadastros:
         quantidade_items = quantidade_items + 1
-        lista_cadastrados = lista_cadastrados.replace("_", " ").replace(" - ", " == ").replace("-", "/").replace(".txt", "")
+        lista_cadastrados = lista_cadastrados.replace("_", " ").replace(" - ", " == ").replace(";", ":").replace("-", "/").replace(".txt", "")
         print str(quantidade_items) + " - " + lista_cadastrados
 
     if tamanho_lista > 0:
