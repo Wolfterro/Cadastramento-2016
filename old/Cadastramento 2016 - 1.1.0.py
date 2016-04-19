@@ -3,29 +3,24 @@
 
 import time
 import os
-import sys
 
 #---------------------------------------------------
 # Criado por: Wolfterro
-# Versão: 1.2.0 - Python 2.x
-# Data: 19/04/2016
+# Versão: 1.1.0 - Python 2.x
+# Data: 18/01/2016
 #---------------------------------------------------
 
 # Versão do programa
 #===================
-versao_programa = "1.2.0"
+versao_programa = "1.1.0"
 
 # Verificação da pasta 'Cadastros', onde será armazenado os cadastros
 #====================================================================
 verificar_pasta_cadastros = os.path.exists("Cadastros")
 
 if verificar_pasta_cadastros == False:
-    try:
-        os.makedirs("Cadastros")
-	os.chdir("Cadastros")
-    except OSError:
-    	print "!!! Erro ao criar o diretório! Saindo... !!!"
-    	sys.exit(1)
+    os.system("mkdir Cadastros")
+    os.chdir("Cadastros")
 else:
     os.chdir("Cadastros")
 
@@ -155,23 +150,25 @@ def Cadastramento():
         #===================================
         if confirmar_cadastro == "S":
 
-            arquivo_cadastro = open(cadastrar_nome + "_" + cadastrar_sobrenome + "_-_" + Cadastro.hora_atual + ":" + Cadastro.minuto_atual + ":" + Cadastro.segundo_atual + "_-_" + Cadastro.dia_atual + "-" + Cadastro.mes_atual + "-" + Cadastro.ano_atual + ".txt", "wb")
+            os.system("touch " + cadastrar_nome + "_" + cadastrar_sobrenome + "_-_" + Cadastro.hora_atual + ":" + Cadastro.minuto_atual + ":" + Cadastro.segundo_atual + "_-_" + Cadastro.dia_atual + "-" + Cadastro.mes_atual + "-" + Cadastro.ano_atual + ".txt")
+
+            arquivo_cadastro = open(cadastrar_nome + "_" + cadastrar_sobrenome + "_-_" + Cadastro.hora_atual + ":" + Cadastro.minuto_atual + ":" + Cadastro.segundo_atual + "_-_" + Cadastro.dia_atual + "-" + Cadastro.mes_atual + "-" + Cadastro.ano_atual + ".txt", "w")
             arquivo_cadastro.write(str(cadastrado_info))
 
             arquivo_cadastro.close()
 
             print "\nCadastramento realizado com sucesso!\n"
-            time.sleep(3)
+            os.system("sleep 3")
             print "Obrigado por utilizar Cadastramento 2016!\n"
 
         else:
-            os.system('cls' if os.name == 'nt' else 'clear')
+            os.system("clear")
             Cadastramento()
     else:
         print "\nErro! Nome ou sobrenome possui espaços ou campo vazio!"
         print "Reiniciando cadastramento (ou pressione 'CTRL + C' para encerrar)..."
-        time.sleep(5)
-        os.system('cls' if os.name == 'nt' else 'clear')
+        os.system("sleep 5")
+        os.system("clear")
         Cadastramento()
 
 #=================================================================
@@ -214,7 +211,7 @@ def Editar_Cadastros():
     escolher_arquivo = raw_input("\nEscolha um arquivo através do número listado: ")
     escolher_arquivo = int(escolher_arquivo)
     try:
-        os.system('notepad ' + listar_pasta_cadastros[escolher_arquivo - 1] if os.name == 'nt' else 'nano ' + listar_pasta_cadastros[escolher_arquivo - 1])
+        os.system("nano " + listar_pasta_cadastros[escolher_arquivo - 1])
         print "\nObrigado por utilizar Cadastramento 2016!\n"
     except IndexError:
         print "\nErro! Cadastro não consta na lista!"

@@ -7,6 +7,12 @@ Um simples programa em Python que mostra os processos básicos de um cadastramen
 CHANGELOG:
 ==========
 
+VERSÃO 1.2.0
+ - Adicionado suporte para Windows
+ - Melhorias no código para suportar portabilidade entre sistemas
+
+#-------------------------------------------------------------------------------------------------------------------
+
 VERSÃO 1.1.0
  - Adicionada função de edição de cadastros ao listá-los
  - Melhorias na listagem de arquivos de cadastro
